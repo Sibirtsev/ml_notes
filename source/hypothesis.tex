@@ -1,0 +1,407 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}
+\usepackage{mathtext}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+\usepackage{amsfonts,amssymb,amsthm,mathtools}
+\usepackage{amsmath}
+\usepackage{icomma}
+
+\usepackage{euscript}
+\usepackage{mathrsfs}
+
+\newcommand*{\hm}[1]{#1\nobreak\discretionary{}
+{\hbox{$\mathsurround=0pt #1$}}{}}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\setlength\fboxsep{1pt}
+\setlength\fboxrule{1pt}
+\usepackage{wrapfig}
+
+\usepackage{caption}
+
+\usepackage{array,tabularx,tabulary,booktabs}
+\usepackage{multirow}
+
+\usepackage{geometry}
+	\geometry{top=25mm}
+	\geometry{bottom=35mm}
+	\geometry{left=35mm}
+	\geometry{right=20mm}
+
+\newcommand{\Expect}{\mathsf{E}}
+\newcommand{\MExpect}{\mathsf{M}}
+
+\author{Alexey Sibirtsev}
+\title{Проверка гипотез}
+\date{\today}
+
+\begin{document}
+
+\tableofcontents
+\pagebreak
+
+\section{Параметрические критерии}
+\subsection{Одновыборочные критерии Стьюдента}
+
+\subsubsection{z-критерий}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+       & $ X \sim N( \mu, \sigma^{2}), \sigma \text{ известна} $ \\
+нулевая гипотеза: & $ H_{0}:~\mu=\mu_{0} $ \\
+альтернатива: & $ H_{1}:~\mu<\neq>\mu_{0} $ \\
+статистика: & $ Z\left( X^{n} \right) = \dfrac{\overline{X}-\mu_{0}}{\sigma/\sqrt[]{n}} $ \\
+нулевое распределение: & $ Z\left( X^{n} \right) \sim N( 0, 1) $
+	\end{tabular}
+\end{table}
+
+\begin{align*}
+p &=
+	\begin{cases}
+		F_{N(0,1)}(z) & H_{1}\text{: } \mu < \mu_{0} \\
+        1-F_{N(0,1)}(z) & H_{1}\text{: } \mu > \mu_{0} \\
+		2(1-F_{N(0,1)}(|z|)) & H_{1}\text{: } \mu \neq \mu_{0}
+	\end{cases}
+\end{align*}
+
+\subsubsection{t-критерий}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+       & $ X \sim N( \mu, \sigma^{2}), \sigma \text{ неизвестна} $ \\
+нулевая гипотеза: & $ H_{0}:~\mu=\mu_{0} $ \\
+альтернатива: & $ H_{1}:~\mu<\neq>\mu_{0} $ \\
+статистика: & $ T\left( X^{n} \right) = \dfrac{\overline{X}-\mu_{0}}{S/\sqrt[]{n}} $ \\
+нулевое распределение: & $ T\left( X^{n} \right) \sim St(n-1) $
+	\end{tabular}
+\end{table}
+
+\begin{align*}
+p &=
+	\begin{cases}
+		F_{St(n-1)}(t) & H_{1}\text{: } \mu < \mu_{0} \\
+        1-F_{St(n-1)}(t) & H_{1}\text{: } \mu > \mu_{0} \\
+		2(1-F_{St(n-1)}(|t|)) & H_{1}\text{: } \mu \neq \mu_{0}
+	\end{cases}
+\end{align*}
+\pagebreak
+
+\subsection{Двухвыборочные критерии Стьюдента}
+
+\subsubsection{z-критерий}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборки:& $ X^{n_{1}}_{1} = \left( X_{11}, \ldots, X_{1n_{1}} \right) $ \\
+       & $ X^{n_{2}}_{2} = \left( X_{21}, \ldots, X_{2n_{2}} \right) $ \\
+       & $ X_{1} \sim N( \mu_{1}, \sigma^{2}_{1}), X_{2} \sim N( \mu_{2}, \sigma^{2}_{2}), $ \\
+       & $ \sigma_{1},\sigma_{2} \text{ известны} $ \\
+нулевая гипотеза: & $ H_{0}:~\mu_{1}=\mu_{2} $ \\
+альтернатива: & $ H_{1}:~\mu_{1} <\neq> \mu_{2} $ \\
+статистика: & $ Z\left( X^{n_{1}}_{1}, X^{n_{2}}_{2} \right) = \dfrac{\overline{X_{1}}-\overline{X_{2}}}{\sqrt[]{ \dfrac{\sigma_{1}^{2}}{n_{1}} + \dfrac{\sigma_{2}^{2}}{n_{2}} }} $ \\
+нулевое распределение: & $ Z\left( X^{n_{1}}_{1}, X^{n_{2}}_{2} \right) \sim N(0, 1) $
+	\end{tabular}
+\end{table}
+
+\subsubsection{t-критерий}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборки:& $X^{n_{1}}_{1} = \left( X_{11}, \ldots, X_{1n_{1}} \right)$ \\
+       & $X^{n_{2}}_{2} = \left( X_{21}, \ldots, X_{2n_{2}} \right)$ \\
+       & $X_{1} \sim N( \mu_{1}, \sigma^{2}_{1}), X_{2} \sim N( \mu_{2}, \sigma^{2}_{2}), $ \\
+       & $\sigma_{1},\sigma_{2} \text{ неизвестны} $ \\
+нулевая гипотеза: & $H_{0}:~\mu_{1}=\mu_{2}$ \\
+альтернатива: & $H_{1}:~\mu_{1} <\neq> \mu_{2}$ \\
+статистика: & $ T\left( X^{n_{1}}_{1}, X^{n_{2}}_{2} \right) = \dfrac{\overline{X_{1}}-\overline{X_{2}}}{\sqrt[]{ \dfrac{S_{1}^{2}}{n_{1}} + \dfrac{S_{2}^{2}}{n_{2}} }}$ \\
+нулевое распределение: & $ T\left( X^{n_{1}}_{1}, X^{n_{2}}_{2} \right) \approx \sim St(\nu) $
+	\end{tabular}
+\end{table}
+
+\begin{align*}
+\nu = \dfrac{\left( \dfrac{S_{1}^{2}}{n_{1}} + \dfrac{S_{2}^{2}}{n_{2}} \right)^2 }{\dfrac{S_{1}^{4}}{n_{1}^{2}(n_{1}-1)} + \dfrac{S_{2}^{4}}{n_{2}^{2}(n_{2}-1)}}
+\end{align*}
+
+Нулевое распределение приближённое, а не точное. Точного решения не существует! (Проблема Баренца-Фишера). Приближение достаточно при $n_{1} = n_{2}$ или при $[n_{1} > n_{2}] = [\sigma_{1} > \sigma_{2}]$
+
+\pagebreak
+
+\subsection{Критерий Стьюдента для связанных выборок}
+
+\subsubsection{t-критерий для связанных выборок}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборки:& $ X^{n}_{1} = \left( X_{11}, \ldots, X_{1n} \right), X_{1} \sim N( \mu_{1}, \sigma^{2}_{1}) $ \\
+       & $ X^{n}_{2} = \left( X_{21}, \ldots, X_{2n} \right), X_{2} \sim N( \mu_{2}, \sigma^{2}_{2}) $ \\
+нулевая гипотеза: & $ H_{0}:~\mu_{1}=\mu_{2} $ \\
+альтернатива: & $ H_{1}:~\mu_{1} <\neq> \mu_{2} $ \\
+статистика: & $ T \left( X^{n}_{1}, X^{n}_{2} \right) = \dfrac{\overline{X_{1}}-\overline{X_{2}}}{S/\sqrt[]{n}} $ \\
+       & $ S^{2} = \dfrac{1}{n-1} \sum \limits_{i=1}^{n}\left( D_{i} - \overline{D} \right)^{2}, D_{i} = X_{1i}-X_{2i} $ \\
+нулевое распределение: & $ T\left( X^{n}_{1}, X^{n}_{2} \right) \sim St(n-1) $
+	\end{tabular}
+\end{table}
+
+\subsection{Нормальность выборок}
+
+\subsubsection{Критерей $\chi^2$}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+нулевая гипотеза: & $ H_{0}:~X \sim N( \mu, \sigma^{2}) $ \\
+альтернатива: & $ H_{1}:~H_{0}\text{ неверна} $ \\
+статистика: & $ \chi^{2}\left( X^{n} \right) = \sum\limits_{i=1}^{K}\dfrac{(n_{i} - np_{i})^2}{np_{i}} $ \\
+нулевое распределение: & $ \chi^{2}\left( X^{n} \right) =
+	\begin{cases}
+		\chi_{K-1}^{2}~,~\mu,\sigma\text{ заданы} \\
+        \chi_{K-3}^{2}~,~\mu,\sigma\text{ оцениваются}
+	\end{cases} $ \\
+	& $ n_{i} $ --- число элементов выборки в $ [a_{i}, a_{i+1}] $ \\
+    & $ p_{i} = F_{N(\mu,\sigma^{2})}(a_{i+1}) - F_{N(\mu,\sigma^{2})}(a_i) $
+    \end{tabular}
+\end{table}
+
+\pagebreak
+
+\subsubsection{Критерий Шапиро-Уилка}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+нулевая гипотеза: & $ H_{0}:~X \sim N( \mu, \sigma^{2}) $ \\
+альтернатива: & $ H_{1}:~H_{0}\text{ неверна} $ \\
+статистика: & $ W\left( X^{n} \right) = \dfrac{ \left( \sum\limits_{i=1}^{n} a_{i} X_{(i)} \right)^{2} }{ \sum\limits_{i=1}{n} (X_{i} - \overline{X} )^{2} } $ \\
+нулевое распределение: & табличное
+	\end{tabular}
+\end{table}
+
+$a_{i}$ основаны на матожиданиях порядковых статистик нормального распределения и также табулированы.
+
+Если нормальность отвергается, чувствительные методы, предполагающие нормальность, использовать \textbf{нельзя}!
+
+\pagebreak
+
+\subsection{Гипотезы о долях}
+
+\subsubsection{z-критерий для доли}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+& $ X \sim Ber(p)  $ \\
+нулевая гипотеза: & $ H_{0}:~p = p_{0} $ \\
+альтернатива: & $ H_{1}:~p <\neq> p_{0} $ \\
+статистика: & $ Z \left( X^{n} \right) = \dfrac{ \hat{p} - p_{0} }{ \sqrt[]{\dfrac{ p_{0}(1-p_{0}) }{n}} }, \hat{p} = \overline{X_{n}} $ \\
+нулевое распределение: & $ Z\left( X^{n} \right) \sim N( 0, 1) $
+	\end{tabular}
+\end{table}
+
+\subsubsection{z-критерий для двух долей, не связанные выборки}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n_{1}} = \left( X_{11}, \ldots, X_{1n_{1}} \right), X_{1} \sim Ber(p_{1}) $ \\
+        & $ X_{2}^{n_{2}} = \left( X_{21}, \ldots, X_{2n_{2}} \right), X_{2} \sim Ber(p_{2}) $ \\
+        & выборки независимы \\
+нулевая гипотеза: & $ H_{0}:~p_{1} = p_{2} $ \\
+альтернатива: & $ H_{1}:~p_{1} <\neq> p_{2} $ \\
+статистика: & $ Z \left( X_{1}^{n_{1}},  X_{2}^{n_{2}} \right) = \dfrac{ \hat{p_{1}} - \hat{p_{2}} }{ \sqrt[]{ P(1-P)\left( \dfrac{1}{n_{1}}+\dfrac{1}{n_{2}} \right) } } $ \\
+			& $ P = \dfrac{ \hat{p_{1}}n_{1} + \hat{p_{2}}n_{2} }{n_{1}+n_{2}} $ \\
+нулевое распределение: & $ Z\left( X_{1}^{n_{1}},  X_{2}^{n_{2}} \right) \sim N( 0, 1) $
+	\end{tabular}
+\end{table}
+
+\begin{wraptable}[1]{r}{3cm}
+  \begin{tabular}{|l|c|c|}
+    \hline
+    & $X_{1}$ & $X_{2}$ \\
+    \hline
+	1 & $a$ & $b$ \\
+    \hline
+    0 & $c$ & $d$ \\
+    \hline
+    $\sum$ & $n_{1}$ & $n_{2}$ \\
+    \hline
+  \end{tabular}
+\end{wraptable}При независимых выборках Z-критерий использует только первую строку таблицы:
+\begin{center}
+$ \hat{p_{1}} = \dfrac{a}{n_{1}}, \hat{p_{2}} = \dfrac{b}{n_{2}} $
+\end{center}
+
+\pagebreak
+
+\subsubsection{z-критерий для двух долей, связанные выборки}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n} = \left( X_{11}, \ldots, X_{1n} \right), X_{1} \sim Ber(p_{1}) $ \\
+        & $ X_{2}^{n} = \left( X_{21}, \ldots, X_{2n} \right), X_{2} \sim Ber(p_{2}) $ \\
+        & выборки связанные \\
+нулевая гипотеза: & $ H_{0}:~ p_{1} = p_{2} $ \\
+альтернатива: & $ H_{1}:~p_{1} <\neq> p_{2} $ \\
+статистика: & $ Z \left( X_{1}^{n},  X_{2}^{n} \right) = \dfrac{ f - g }{ \sqrt[]{ f + g - \dfrac{(f-g)^2}{n} } } $ \\
+нулевое распределение: & $ Z\left( X_{1}^{n}, X_{2}^{n} \right) \sim N(0, 1), \text{ при } H_{0} = 0 $
+	\end{tabular}
+\end{table}
+
+\begin{wraptable}[3]{l}{6cm}
+  \begin{tabular}{|c|c|c|c|}
+    \hline
+    $X_{1}^{n}$  & \multirow{2}{*}{1} & \multirow{2}{*}{0} & \multirow{2}{*}{$\sum$} \\
+    $X_{2}^{n}$ & & & \\
+    \hline
+    1 & $e$ & $f$ & $e+f$ \\
+    \hline
+    0 & $g$ & $h$ & $g+h$ \\
+    \hline
+    $\sum$ & $e+g$ & $f+h$ & $n$ \\
+    \hline
+  \end{tabular}
+\end{wraptable}При связанных выборках Z-критерий использует только внедиагональные элементы таблицы.
+
+\pagebreak
+
+\section{Непараметрические критерии}
+
+\subsection{Критерий знаков}
+
+\subsubsection{Одновыборочный критерий знаков}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right), X_{i} \neq m_{0} $ \\
+нулевая гипотеза: & $ H_{0}:~med~X=m_{0} $ \\
+альтернатива: & $ H_{1}:~med~X<\neq>m_{0} $ \\
+статистика: & $ T\left( X^{n} \right) = \sum\limits_{i=1}^{n}\left[ X_{i} > m_{0} \right] $ \\
+нулевое распределение: & $ T\left( X^{n} \right) \sim Bin \left(n, \frac{1}{2} \right) $
+	\end{tabular}
+\end{table}
+
+\subsubsection{Двухвыборочный критерий знаков}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n} = \left( X_{11}, \ldots, X_{1n} \right) $ \\
+       & $ X_{2}^{n} = \left( X_{21}, \ldots, X_{2n} \right) $ \\
+       & $ X_{1i} \neq X_{2i} $, выборки связанные \\
+нулевая гипотеза: & $ H_{0}:~P(X_{1} > X_{2}) = \dfrac{1}{2} $ \\
+альтернатива: & $ H_{1}:~P(X_{1} > X_{2}) <\neq> \dfrac{1}{2} $ \\
+статистика: & $ T\left( X_{1}^{n}, X_{2}^{n} \right) = \sum\limits_{i=1}^{n}\left[ X_{1i} > X_{2i} \right] $ \\
+нулевое распределение: & $ T\left( X_{1}^{n}, X_{2}^{n} \right) \sim Bin \left(n, \frac{1}{2} \right) $
+	\end{tabular}
+\end{table}
+
+\subsection{Ранговые критерии}
+
+\subsubsection{Критерий ранговых знаков}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right), X_{i} \neq m_{0} $ \\
+       & $ F_{X} $ симметрично относительно медианы \\
+нулевая гипотеза: & $ H_{0}:~med~X=m_{0} $ \\
+альтернатива: & $ H_{1}:~med~X<\neq>m_{0} $ \\
+статистика: & $ W\left( X^{n} \right) = \sum\limits_{i=1}^{n} rank(|X_{i} - m_{0}|) \cdot sign(X_{i} - m_{0}) $ \\
+нулевое распределение: & табличное
+	\end{tabular}
+\end{table}
+
+Апроксимация для $n>20$:
+\[
+W \approx \sim N \left( 0, \dfrac{ n(n+1)(2n+1) }{6} \right)
+\]
+
+\pagebreak
+
+\subsubsection{Критерий ранговых знаков, связанные выборки}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n} = \left( X_{11}, \ldots, X_{1n} \right) $ \\
+       & $ X_{2}^{n} = \left( X_{21}, \ldots, X_{2n} \right) $ \\
+       & $ X_{1i} \neq X_{2i} $, выборки связанные \\
+нулевая гипотеза: & $ H_{0}:~med(X_{1} - X_{2}) = 0 $ \\
+альтернатива: & $ H_{1}:~med(X_{1} - X_{2}) <\neq> 0 $ \\
+статистика: & $ W\left( X_{1}^{n}, X_{2}^{n} \right) = \sum\limits_{i=1}^{n} rank(|X_{1i} - X_{2i}|) \cdot sign(X_{1i} - X_{2i}) $ \\
+нулевое распределение: & табличное
+	\end{tabular}
+\end{table}
+
+\subsection{Критерий Манна-Уитни}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n_{1}} = \left( X_{11}, \ldots, X_{1n_{1}} \right) $ \\
+       & $ X_{2}^{n_{2}} = \left( X_{21}, \ldots, X_{2n_{2}} \right) $ \\
+нулевая гипотеза: & $ H_{0}:~F_{X_{1}}(x) = F_{X_{2}}(x) $ \\
+альтернатива: & $ H_{1}:~F_{X_{1}}(x) = F_{X_{2}}(x+\Delta), \Delta <\neq> 0 $ \\
+статистика: & $ X_{(1)}\leqslant \ldots \leqslant X_{(n_{1}+n_{2})} $ - вариационный ряд \\
+          & объеденённой выборки \\
+          & $ X = X_{1}^{n_{1}} \cup X_{2}^{n_{2}} $ \\
+          & $ R\left( X_{1}^{n_{1}}, X_{2}^{n_{2}} \right) = \sum\limits_{i=1}^{n_{1}} rank(X_{1i}) $ \\
+нулевое распределение: & табличное
+	\end{tabular}
+\end{table}
+
+Апроксимация для $n_{1}, n_{2} > 10$:
+\[
+R_{1} \sim N\left( \dfrac{n_{1}(n_{1}+n_{2}+1)}{2}, \dfrac{n_{1}n_{2}(n_{1}+n_{2}+1)}{12} \right)
+\]
+
+\pagebreak
+
+\subsection{Перестановочные критерии}
+
+\subsubsection{Одновыборочный критерий}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X^{n} = \left( X_{1}, \ldots, X_{n} \right) $ \\
+       & $ F_{X} $ симметрично относительно матожидания \\
+нулевая гипотеза: & $ H_{0}:~ \Expect X = m_{0} $ \\
+альтернатива: & $ H_{1}:~ \Expect X <\neq> m_{0} $ \\
+статистика: & $ T\left( X^{n} \right) = \sum\limits_{i=1}^{n} (X_{i} - m_{0}) $ \\
+нулевое распределение: & порождается перебором $2^{n}$ знаков \\
+                   & перед слагаемыми $ X_{i} - m_{0} $
+	\end{tabular}
+\end{table}
+
+\subsubsection{Для связанных выборок}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n} = \left( X_{11}, \ldots, X_{1n} \right) $ \\
+       & $ X_{2}^{n} = \left( X_{21}, \ldots, X_{2n} \right) $ \\
+       & выботки связанные \\
+нулевая гипотеза: & $ H_{0}:~ \Expect (X_{1} - X_{2}) = m_{0} $ \\
+альтернатива: & $ H_{1}:~ \Expect (X_{1} - X_{2}) <\neq> m_{0} $ \\
+статистика: & $ D^{n} = (X_{1i} - X_{2i}) $ \\
+          & $ T\left( X_{1}^{n}, X_{2}^{n} \right) = T(D^{n}) = \sum\limits_{i=1}^{n} D_{i} $ \\
+нулевое распределение: & порождается перебором $2^{n}$ знаков \\
+                   & перед слагаемыми $ D_{i} $
+	\end{tabular}
+\end{table}
+
+\subsubsection{Для независимых выборок}
+
+\begin{table}[h]
+	\begin{tabular}{rl}
+выборка:& $ X_{1}^{n_{1}} = \left( X_{11}, \ldots, X_{1n_{1}} \right) $ \\
+       & $ X_{2}^{n_{2}} = \left( X_{21}, \ldots, X_{2n_{2}} \right) $ \\
+нулевая гипотеза: & $ H_{0}:~ F_{X_{1}}(x) = F_{X_{2}}(x) $ \\
+альтернатива: & $ H_{1}:~ F_{X_{1}}(x) = F_{X_{2}}(x + \Delta), \Delta <\neq> 0 $ \\
+статистика: & $ T\left( X_{1}^{n_{1}}, X_{2}^{n_{2}} \right) =  \dfrac{1}{n_{1}} \sum \limits_{i=1}^{n_{1}}X_{1i} - \dfrac{1}{n_{2}} \sum \limits_{i=1}^{n_{2}}X_{2i} $ \\
+нулевое распределение: & порождается перебором $ C_{n_{1}+n_{2}}^{n_{1}} $ \\
+                   & размещений объеденённой выборки
+	\end{tabular}
+\end{table}
+
+\end{document}
