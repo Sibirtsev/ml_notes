@@ -9,5 +9,8 @@
 * [HyperOpt](https://github.com/hyperopt/hyperopt) - Подбор гиперпараметров
 * [Sacred](https://github.com/IDSIA/sacred) - Управление экспериментами (подбор гиперпараметров)
 
+## Визуализация
+* https://github.com/jwass/mplleaflet - Карты leaflet, которые легко встраиваются в jupyter notebook
+
 ## Разное
 * https://dataset.readthedocs.io/en/latest/index.html - Обёртка над SQLAlchemy для упрощения интрерфейса - полезно для прототипирования и маленьких баз
