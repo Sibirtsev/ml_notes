@@ -14,3 +14,4 @@
 
 ## Разное
 * https://dataset.readthedocs.io/en/latest/index.html - Обёртка над SQLAlchemy для упрощения интрерфейса - полезно для прототипирования и маленьких баз
+* https://github.com/TeamHG-Memex/eli5 - Библиотека для отладки моделей и объяснения их предсказаний. Поддерживаются sklearn, xgboost и некоторые другие
