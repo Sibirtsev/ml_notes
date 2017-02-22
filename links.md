@@ -12,6 +12,9 @@
 ## Визуализация
 * https://github.com/jwass/mplleaflet - Карты leaflet, которые легко встраиваются в jupyter notebook
 
+## Времянные ряды
+* http://www.pyflux.com/ https://github.com/RJT1990/pyflux - интересная "живая" библиотека для работы с времянными рядами, правда не нашёл `SARIMAX` модели
+
 ## Разное
 * https://dataset.readthedocs.io/en/latest/index.html - Обёртка над SQLAlchemy для упрощения интрерфейса - полезно для прототипирования и маленьких баз
 * https://github.com/TeamHG-Memex/eli5 - Библиотека для отладки моделей и объяснения их предсказаний. Поддерживаются sklearn, xgboost и некоторые другие
