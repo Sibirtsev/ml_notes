@@ -15,6 +15,7 @@
 
 ## Времянные ряды
 * http://www.pyflux.com/ https://github.com/RJT1990/pyflux - интересная "живая" библиотека для работы с времянными рядами, правда не нашёл `SARIMAX` модели
+* https://github.com/facebookincubator/prophet - библиотека для прогнозирования временных рядов от инкудатора facebook, имплементация на R и python
 
 ## Разное
 * https://dataset.readthedocs.io/en/latest/index.html - Обёртка над SQLAlchemy для упрощения интрерфейса - полезно для прототипирования и маленьких баз
