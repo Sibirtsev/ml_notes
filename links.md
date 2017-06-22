@@ -15,7 +15,9 @@
 * https://github.com/ibayer/fastFM
 * https://github.com/benfred/implicit
 * https://github.com/JohnLangford/vowpal_wabbit
+* https://github.com/NicolasHug/Surprise - [site](http://surpriselib.com/)
 * [RecSys](https://recsys.acm.org/) - сайт конференции по рекомендательным системам
+* https://github.com/python-recsys
 * [RecSys Wiki](http://www.recsyswiki.com/wiki/Main_Page) - Wiki с материалами конференции RecSys
 
 ## Визуализация
