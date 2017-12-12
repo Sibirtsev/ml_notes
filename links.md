@@ -4,6 +4,7 @@
 * https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/feature/slides.pdf
 * http://www.cs.princeton.edu/courses/archive/spring10/cos424/slides/18-feat.pdf
 * https://github.com/blue-yonder/tsfresh - Автоматическое извлечение признаков из временных рядов
+* https://github.com/ResidentMario/missingno - Библиотека для визуализации и анализа пропусков в данных
 
 ## Настройка моделей
 * [HyperOpt](https://github.com/hyperopt/hyperopt) - Подбор гиперпараметров
