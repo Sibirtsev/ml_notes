@@ -40,3 +40,6 @@
 * https://github.com/sharkdp/shell-functools - Удобный набор консольных утилит на python
 * https://github.com/Gewissta/Learning_pandas_russian_translation - Шикарный учебник по `pandas`
 * https://github.com/ageitgey/face_recognition - Распознование лиц
+
+## bash
+* https://github.com/dylanaraps/pure-bash-bible - готовые рецепты для частых кейсов на чистом bash'е
