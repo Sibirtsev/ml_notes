@@ -28,6 +28,7 @@
 ## Визуализация
 * https://github.com/jwass/mplleaflet - Карты leaflet, которые легко встраиваются в jupyter notebook
 * https://github.com/reiinakano/scikit-plot - Интересная библиотека для визуализации парамеров моделей sklearn
+* https://github.com/yhat/ggpy - Порт ggplot2 для python (не было комитов с 2016 года)
 
 ## Времянные ряды
 * http://www.pyflux.com/ https://github.com/RJT1990/pyflux - интересная "живая" библиотека для работы с времянными рядами, правда не нашёл `SARIMAX` модели
