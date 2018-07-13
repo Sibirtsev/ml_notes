@@ -6,6 +6,10 @@
 * https://github.com/blue-yonder/tsfresh - Автоматическое извлечение признаков из временных рядов
 * https://github.com/ResidentMario/missingno - Библиотека для визуализации и анализа пропусков в данных
 
+### Изображения
+#### Аргументация
+* https://github.com/albu/albumentations - библиотека от ребят из ods
+
 ## Настройка моделей
 * [HyperOpt](https://github.com/hyperopt/hyperopt) - Подбор гиперпараметров
 * [Sacred](https://github.com/IDSIA/sacred) - Управление экспериментами (подбор гиперпараметров)
