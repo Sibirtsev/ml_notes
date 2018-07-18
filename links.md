@@ -30,6 +30,7 @@
 * https://github.com/reiinakano/scikit-plot - Интересная библиотека для визуализации парамеров моделей sklearn
 * https://github.com/yhat/ggpy - Порт ggplot2 для python (не было комитов с 2016 года)
 * https://github.com/amitkaps/visdown - Встраивание визуализаций в markdown
+* https://github.com/susielu/d3-annotation - Анотации для D3.js
 
 ## Времянные ряды
 * http://www.pyflux.com/ https://github.com/RJT1990/pyflux - интересная "живая" библиотека для работы с времянными рядами, правда не нашёл `SARIMAX` модели
